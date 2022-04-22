@@ -27,7 +27,7 @@ module.exports = createCoreController('api::post.post',({strapi})=>({
         data
       })
     })
-    ctx.send(getData.data[0])
+    ctx.send('DATA IMPORTED TO STRAPI SUCCESSFULLY')
   }
   catch(e){
     ctx.send("OOPS")
@@ -39,6 +39,10 @@ module.exports = createCoreController('api::post.post',({strapi})=>({
     //   data
     // });
     // ctx.send(data)
+  },
+  async fetchPosts(ctx){
+    const resp = await strapi.service('api::post.post').find();
+    ctx.send(resp);
   }
 }));
 // module.exports = {

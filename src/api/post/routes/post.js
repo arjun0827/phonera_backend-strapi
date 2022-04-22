@@ -16,6 +16,14 @@ module.exports={
             config:{
                 auth:false
             }
-        }
+        },
+        {
+            method:"GET",
+            path:'/posts',
+            handler:'api::post.post.fetchPosts',
+            config:{
+                auth:false
+            }
+        },
     ]
 }
